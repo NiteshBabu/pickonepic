@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+
+
+.img-card{
+  @apply h-64 w-64 relative overflow-hidden rounded-md flex-auto hover:opacity-90 hover:z-50 transition ease-in-out duration-500;
+}
