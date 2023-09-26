@@ -7,7 +7,11 @@
 </div>
 <br>
 
+![image](https://user-images.githubusercontent.com/51394733/270540039-8857e40c-c3eb-47e3-87e7-25d9debd657e.png)
+
+
 This is a [Next.js](https://nextjs.org/) photo gallery project. It lets you search for images but not as typical react's CSR component but as SSR which optimises it for SEO. I'm also using blur image while the images are being fetched using third party libs like [Plaiceholder]() & [Sharpen]().
+
 
 ## Getting Started
 
