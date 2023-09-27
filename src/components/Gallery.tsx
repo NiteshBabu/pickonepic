@@ -18,7 +18,8 @@ export default async function Gallery({ topic }: Props) {
     }
 
     return (
-        <div className="flex flex-wrap gap-4 mt-10 justify-start items-start">
+        // <div className="flex flex-wrap gap-4 mt-10 justify-start items-start">
+        <div className="grid grid-cols-gallery  grid-rows-[10px] ">
             {photos ? (
                 photos.map((photo) => <Photo photo={photo} />)
             ) : (

@@ -9,6 +9,7 @@ function Header() {
                 <Link href="/">
                     <h1 className='text-4xl font-bold'>Pick-One-Pic</h1>
                 </Link>
+                
                 <Search />
             </nav>
         </div>

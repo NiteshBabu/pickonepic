@@ -13,7 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-      gridTemplateColumn: {
+      gridTemplateColumns: {
         'gallery' : 'repeat(auto-fit, minmax(250px, 1fr))'
       }
     },
