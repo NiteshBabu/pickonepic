@@ -1,8 +1,7 @@
 import { getBlurredUrl, getImages } from '@/lib/fetchImages';
 import React from 'react'
 import Photo from './Photo';
-import { Photo as TypePhoto } from '@/models/Image.models';
-import { ImageResponse } from 'next/server';
+import { Photo as TypePhoto, ImageResponse } from '@/models/Image.models';
 
 type Props = {
     topic?: string
@@ -11,7 +10,7 @@ type Props = {
 export default async function Gallery({ topic }: Props) {
 
     let images: ImageResponse | undefined = await getImages(topic || "beaches");
-    let photos: TypePhoto[]
+    let photos: TypePhoto[] | null = null
 
     if (images) {
         photos = await getBlurredUrl(images)

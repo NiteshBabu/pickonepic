@@ -1,7 +1,6 @@
 import { ImageResponse, Photo } from "@/models/Image.models";
 import sharp from "sharp";
 import https from "https"
-import Photo from "@/components/Photo";
 import { getPlaiceholder } from "plaiceholder";
 const baseURL = "https://api.pexels.com/v1/search?"
 
@@ -61,7 +60,7 @@ const getBase64 = async (url: string) => {
             .resize(10, 10, { fit: 'inside' })
             .webp({ quality: 100 })
             .toBuffer();
-            let x = Buffer.from("Hello")
+        let x = Buffer.from("Hello")
         return `data:image/png;base64,${resizedImageBuffer.toString("base64")}`
         // return resizedImageBuffer.toString("base64")
         // const { base64 } = await getPlaiceholder(imgBuffer)
@@ -79,5 +78,5 @@ export const getBlurredUrl = async (images: ImageResponse): Promise<Photo[]> => 
     const base64Promises = images.photos.map((photo: Photo) => getBase64(photo.src.large2x))
     const base64Urls = await Promise.all(base64Promises)
 
-    return images.photos.map((photo, indx) => ({ ...photo, blurredDataUrl: base64Urls[indx] }))
+    return images.photos.map((photo, indx) => ({ ...photo, blurredDataUrl: base64Urls[indx] as string }))
 }
