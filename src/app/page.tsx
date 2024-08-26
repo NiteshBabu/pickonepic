@@ -1,6 +1,4 @@
-import Link from "next/link";
-import Gallery from "@/components/Gallery";
-import Search from "@/components/Search";
+import Gallery from '@/components/Gallery'
 
 type Props = {
   searchParams: {
@@ -8,15 +6,10 @@ type Props = {
   }
 }
 
-export default async function Home({searchParams : {q}}: Props) {
-  // const fetchNextPage = () => {
-  //   fetch(images?.next_page!)
-  //     .then((resp) => resp.json())
-  //     .then((d) => setImages(d));
-  // };
+
+export default async function Home({ searchParams: { q } }: Props) {
+
   return (
-    <>
       <Gallery topic={q} />
-    </>
-  );
+  )
 }

@@ -60,7 +60,6 @@ const getBase64 = async (url: string) => {
             .resize(10, 10, { fit: 'inside' })
             .webp({ quality: 100 })
             .toBuffer();
-        let x = Buffer.from("Hello")
         return `data:image/png;base64,${resizedImageBuffer.toString("base64")}`
         // return resizedImageBuffer.toString("base64")
         // const { base64 } = await getPlaiceholder(imgBuffer)

@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-4/5 mx-auto`}>
+      <body className={`${inter.className} w-3/5 mx-auto grid grid-rows-[auto_1fr_auto] min-h-screen`}>
         <Header />
         {children}
         <Footer />
