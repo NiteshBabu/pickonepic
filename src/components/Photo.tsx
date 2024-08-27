@@ -13,7 +13,7 @@ function Photo({ photo }: Props) {
 
   return (
     <div
-      className="img-card p-3 mx-auto sm:mx-0"
+      className="img-card  p-3 mx-auto sm:mx-0 group-hover:opacity-70 group-hover:[&:has(:hover)]:opacity-100 hover:scale-105 transition-all duration-500 ease-in-out"
       style={{ gridRow: `span ${rowSpan}` }}
     >
       <Link href={photo.src.large2x} target="_blank">
@@ -25,7 +25,7 @@ function Photo({ photo }: Props) {
           sizes="250px"
           placeholder="blur"
           blurDataURL={photo.blurredDataUrl}
-          className='rounded-xl w-full'
+          className="rounded-xl w-full"
         />
       </Link>
     </div>

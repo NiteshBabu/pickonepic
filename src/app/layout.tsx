@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
+import PageProgress from '@/components/PageProgress'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-3/5 mx-auto grid grid-rows-[auto_1fr_auto] min-h-screen`}>
+      <body
+        className={`${inter.className} max-w-7xl mx-auto grid grid-rows-[auto_1fr_auto] min-h-screen`}
+      >
+        <PageProgress />
         <Header />
         {children}
         <Footer />
