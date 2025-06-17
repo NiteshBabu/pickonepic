@@ -31,7 +31,7 @@ export default async function Gallery({ topic, page }: Props) {
     <>
       <div className="grid grid-cols-gallery grid-rows-[10px] content-start group">
         {photos ? (
-          photos.map((photo) => <Photo photo={photo} />)
+          photos.map((photo) => <Photo photo={photo} isClient={false} />)
         ) : (
           <p className="text-5xl text-red-500 mx-auto ">No Pics Found</p>
         )}

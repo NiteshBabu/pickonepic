@@ -1,3 +1,4 @@
+'use client'
 import { type Photo } from '@/models/Image.models'
 import Image from 'next/image'
 import Link from 'next/link'
