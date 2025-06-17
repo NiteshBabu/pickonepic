@@ -8,7 +8,7 @@ export const getImages = async (
   query: string = 'corgis',
   page: string = '1'
 ): Promise<ImageResponse | undefined> => {
-  const url = `${baseURL}${new URLSearchParams({ query, page, per_page : "20" })}`
+  const url = `${baseURL}${new URLSearchParams({ query, page, per_page : "5" })}`
     
   try {
     const response = await fetch(url, {

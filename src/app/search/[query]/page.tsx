@@ -1,25 +1,25 @@
 import Gallery from '@/components/Gallery'
+import InfiniteGallery from '@/components/InfiniteGallery'
 
 type Props = {
-  params: {
-    query: string
-  }
-  searchParams: { page: string }
+	params: {
+		query: string
+	}
+	searchParams: { page: string }
 }
 
 const generateMetadata = ({ params: { query } }: Props) => {
-  return {
-    title: query,
-  }
+	return {
+		title: query,
+	}
 }
 
 function Page({ params: { query }, searchParams: { page } }: Props) {
-  return (
-    <>
-      <Gallery topic={query} page={page} />
-    </>
-  )
+	return (
+		<>
+			<Gallery topic={query} page={page} />
+		</>
+	)
 }
-
 
 export default Page

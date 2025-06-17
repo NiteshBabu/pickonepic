@@ -1,4 +1,4 @@
-import Gallery from '@/components/Gallery'
+import InfiniteGallery from '@/components/InfiniteGallery'
 
 type Props = {
   searchParams: {
@@ -7,9 +7,9 @@ type Props = {
 }
 
 
-export default async function Home({ searchParams: { q } }: Props) {
+export default async function Home() {
 
   return (
-      <Gallery topic={q} />
+      <InfiniteGallery  />
   )
 }
