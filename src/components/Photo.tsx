@@ -6,7 +6,6 @@ import { useState } from 'react'
 
 type Props = {
 	photo: Photo
-} & {
 	isClient: boolean
 }
 
@@ -14,8 +13,12 @@ function Photo({ photo, isClient }: Props) {
 	const aspectRatio = photo.height / photo.width
 	const photoHeight = Math.ceil(250 * aspectRatio)
 	const rowSpan = Math.ceil(photoHeight / 10) + 1
+	const blurImg = `url(${
+		photo.src.tiny.split('?')[0]
+	}?h=10&w=10&auto=compress&cs=tinysrgb&dpr=1)`
 
 	const [fetchingImage, setFetchingImage] = useState(true)
+
 	return (
 		<div
 			className='img-card p-2 mx-auto sm:mx-0 group-hover:opacity-70 group-hover:[&:has(:hover)]:opacity-100 hover:scale-105 transition-all duration-500 ease-in-out'
@@ -23,18 +26,26 @@ function Photo({ photo, isClient }: Props) {
 			<Link href={photo.src.large2x} target='_blank'>
 				{isClient ? (
 					<>
-						{fetchingImage && <Skeleton photoHeight={photoHeight} />}
-						<img
-							src={photo.src.large2x}
-							alt={photo.alt}
-							className={`${
-								fetchingImage ? 'hidden' : 'block'
-							} rounded-xl w-full`}
+						{/* {fetchingImage && <Skeleton photoHeight={photoHeight} />} */}
+						<div
+							className='bg-contain rounded-xl w-full overflow-hidden relative z-1 blur-sm'
 							style={{
+								backgroundImage: blurImg,
 								height: photoHeight,
-							}}
-							onLoad={() => setFetchingImage(false)}
-						/>
+								filter: `blur(${!fetchingImage && 0})`,
+							}}>
+							<img
+								src={photo.src.large2x}
+								alt={photo.alt}
+								className={`${
+									fetchingImage
+										? 'hidden'
+										: 'block h-full absolute z-10 inset-0'
+								} `}
+								style={{}}
+								onLoad={() => setTimeout(() => setFetchingImage(false), 500)}
+							/>
+						</div>
 					</>
 				) : (
 					<Image

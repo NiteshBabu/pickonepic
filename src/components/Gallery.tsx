@@ -1,7 +1,7 @@
 import { getBlurredUrl, getImages } from '@/lib/fetchImages'
-import Photo from './Photo'
-import { Photo as TypePhoto, ImageResponse } from '@/models/Image.models'
+import { ImageResponse, Photo as TypePhoto } from '@/models/Image.models'
 import Pagination from './Pagination'
+import Photo from './Photo'
 
 type Props = {
   topic?: string

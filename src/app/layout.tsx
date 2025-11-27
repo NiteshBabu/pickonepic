@@ -1,9 +1,9 @@
 import Footer from '@/components/Footer'
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Header from '@/components/Header'
 import PageProgress from '@/components/PageProgress'
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,7 +23,7 @@ export default function RootLayout({
 				className={`${inter.className} mx-auto grid grid-rows-[auto_1fr_auto] min-h-screen`}>
 				<PageProgress />
 				<Header />
-				<main className='max-w-7xl mx-auto w-full'>{children}</main>
+				<main className='max-w-5xl mx-auto w-full'>{children}</main>
 				<Footer />
 			</body>
 		</html>

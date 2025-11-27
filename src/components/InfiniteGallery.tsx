@@ -1,17 +1,16 @@
 'use client'
-import Photo from './Photo'
+import {
+	type ImageResponse,
+	type Photo as TypePhoto,
+} from '@/models/Image.models'
+import { useSearchParams } from 'next/navigation'
 import {
 	useCallback,
 	useEffect,
-	useLayoutEffect,
 	useRef,
 	useState,
 } from 'react'
-import {
-	type Photo as TypePhoto,
-	type ImageResponse,
-} from '@/models/Image.models'
-import { useSearchParams } from 'next/navigation'
+import Photo from './Photo'
 
 type Props = {
 	topic?: string
@@ -48,9 +47,10 @@ export default function InfiniteGallery() {
 	const [element, setElement] = useState<HTMLElement | null>(null)
 	const [fetching, setFetching] = useState(true)
 	const [photos, setPhotos] = useState<TypePhoto[] | []>([])
-
+	
 	const searchParams = useSearchParams()
 	const topic = searchParams.get('q')?.toLowerCase() || 'Beach'
+
 
 	useEffect(() => {
 		setPhotos([])
@@ -65,7 +65,6 @@ export default function InfiniteGallery() {
 	}, [topic])
 
 	useEffect(() => {
-		console.log('XX', page)
 		if (photos && photos.length > 0) {
 			getImages(topic, page.toString()).then((resp) => {
 				if (resp && resp.photos.length > 0) {
@@ -140,7 +139,7 @@ export default function InfiniteGallery() {
 		<>
 			<div className='grid grid-cols-gallery grid-rows-[10px] content-start group'>
 				{photos.map((photo) => (
-					<Photo photo={photo} isClient key={photo.id} />
+					<Photo  photo={photo} isClient key={photo.id} />
 				))}
 			</div>
 			<div className='grid place-content-center'>
