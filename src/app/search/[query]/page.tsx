@@ -7,7 +7,7 @@ type Props = {
 	searchParams: { page: string }
 }
 
-const generateMetadata = ({ params: { query } }: Props) => {
+export const generateMetadata = ({ params: { query } }: Props) => {
 	return {
 		title: query,
 	}
