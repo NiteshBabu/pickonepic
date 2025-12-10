@@ -1,5 +1,4 @@
 import Gallery from '@/components/Gallery'
-import InfiniteGallery from '@/components/InfiniteGallery'
 
 type Props = {
 	params: {
@@ -23,3 +22,5 @@ function Page({ params: { query }, searchParams: { page } }: Props) {
 }
 
 export default Page
+
+export const runtime = 'edge'
